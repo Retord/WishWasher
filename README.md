@@ -18,4 +18,4 @@ Requirements:
 - A working internet connection. (duh)
 
 
-![Python](http://static-l3.blogcritics.org/10/12/01/149403/python-logo.jpg "Python")
+![Python](http://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/40px-Python-logo-notext.svg.png "Python")
