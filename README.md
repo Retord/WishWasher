@@ -21,5 +21,7 @@ Requirements:
 
 
 Powered by:
+
 ![Python](http://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/40px-Python-logo-notext.svg.png "Python")
+
 ![Facebook](http://musically.com/wp-content/uploads/2012/11/Facebook-logo-47x47.jpg "Facebook")
