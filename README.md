@@ -13,6 +13,6 @@ Here is your solution! Wish-Washer starts reading your Facebook wall for posts r
 Requirements:
 -------------
 
-+ Requests - HTTP for Humans.
-+ Facebook Access Token.
-+ A working internet connection. (duh)
+- Requests - HTTP for Humans.
+- Facebook Access Token.
+- A working internet connection. (duh)
