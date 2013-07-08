@@ -47,14 +47,14 @@ def reply_bday(posts):
 
 			start_time = post["created_time"]
 			
-			print "Replied to %s who posted %s. :)" % friend["name"], post["post_id"]
+			print( "Replied to {0} who posted {1}: {2}. :)".format( friend["name"], post["post_id"], post["message"] ) ) 
 
 
 
 
 if __name__ == "__main__":
 	while time.mktime(time.strptime(time.ctime())) < start_time:
-		print "Waiting for your birthday"
+		print("Waiting for your birthday")
 		
 	while start_time < end_time :
 		reply_bday( get_posts( start_time ) )
