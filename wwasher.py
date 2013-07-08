@@ -53,8 +53,13 @@ def reply_bday(posts):
 
 
 if __name__ == "__main__":
-	while time.mktime(time.strptime(time.ctime())) < start_time:
+
+	if time.mktime(time.strptime(time.ctime())) < start_time:
 		print("Waiting for your birthday")
+
+		while time.mktime(time.strptime(time.ctime())) < start_time:
+			continue
+
 		
 	while start_time < end_time :
 		reply_bday( get_posts( start_time ) )
