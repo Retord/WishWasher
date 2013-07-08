@@ -61,6 +61,9 @@ def get_message(post, friend):
 		Returns: A reply message to be posted in the comments
 	"""
 	
+	relations = {"mother":"Mom", "father":"Dad", "sister":"Tinki", "brother":"bro", "cousin":"cousin", "aunt":"aunt"}
 	relation = get_relation(friend["name"])
+
+	if
 
 	return ""

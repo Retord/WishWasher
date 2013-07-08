@@ -17,7 +17,7 @@ end_time = time.mktime( time.strptime( "Fri Jul 12 00:00:00 2013" ) )
 def get_posts(start_time):
 	""" Returns json data of all the posts on your stream since the start time provided"""
 
-	payload = { 'access_token': fb.AUTH_TOKEN, 'q':fb.POSTS_QUERY % start_time }
+	payload = { 'access_token': fb.AUTH_TOKEN, 'q':fb.POSTS_QUERY(start_time) }
 	r = requests.get( fb.url_fql, params=payload )
 	posts = json.loads(r.text)     # Creates Python object from the JSON
 	return posts["data"]
