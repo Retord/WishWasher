@@ -39,6 +39,7 @@ def get_relation(friend):
 
 	rel_list = [x["name"] for x in relations]
 
+	relation = ''
 	if friend["name"] in rel_list:
 		relation = relations[rel_list(friend["name"])]["relationship"]
 
