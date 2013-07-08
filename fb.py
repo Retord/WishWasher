@@ -6,7 +6,7 @@ USER_ID = '1587053882'
 
 
 #Token has to be updated
-AUTH_TOKEN = 'CAAEKO64gS0YBAB36rQ4i39B29H3ZCRry1kvrYj09BwOEwQYVGVLaZAJh0wLrW0chQ34xSKyFoZB2ruatgoqMYTFiydlfLnRA6okZClrpK13WbjIPoGSCIkCbPTWHjgEh9HbCLCOfSMxY5uwNOnLiQpaAZB3xNsxkZD'
+AUTH_TOKEN = 'CAAEKO64gS0YBAFZBm0YDGxOQVrXCJuwmJUnJuZBlAGAVkTpRaA4BxHKxW5IBysrceHHCqOHssS3FF90AC5dMD7iVuDJE8fKHm43ysIUlo1jZAbxPYa4cJ5g1VHieasRcdm1s1eL3ERaKaCFZAXqjGOitm5hshYwZD'
 
 TOKEN_GRAPH_API = 'CAACEdEose0cBAPBleQCOHigvxY5CagD8xHwfmHMdZBzE4WHyD6dSZATdseWefZCkt9IZBnLmxpkmZB30dfXOuXf3SiUSZBZAp9Yn58aFaUzb2v3LpvSg2aPjWAjjMvyoGOmI8ZC6CfCflmsTanRNI2Ef2QaZBfEJ9pLU9Im8ZA9FhauAZDZD'
 
@@ -25,6 +25,6 @@ def POSTS_QUERY(time): return ("SELECT post_id, actor_id, message, created_time 
 def url_fql(): return "https://graph.facebook.com/fql"
 def url_base(id): return "https://graph.facebook.com/%s" % id
 def url_friend(friend_id): return url_base(friend_id)
-def url_like(post_id) = url_base(post_id) + "/likes"
-def url_comments(post_id) = url_base(post_id) + "/comments"
-def url_family() = url_base + "/family" % "me"
+def url_like(post_id): url_base(post_id) + "/likes"
+def url_comments(post_id): url_base(post_id) + "/comments"
+def url_family(): url_base + "/family" % "me"
