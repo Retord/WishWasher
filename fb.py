@@ -22,9 +22,9 @@ POSTS_QUERY = ("SELECT post_id, actor_id, message, created_time FROM stream WHER
 
 # URLs
 
-url_fql = "https://graph.facebook.com/fql"
-url_base = "https://graph.facebook.com/%s"
-url_friend = url_base
-url_like = url_base + "/likes"
-url_comments = url_base + "/comments"
-url_family = url_base + "/family" % "me"
+def url_fql(): return "https://graph.facebook.com/fql"
+def url_base(id): return "https://graph.facebook.com/%s" % id
+def url_friend(friend_id): return url_base(friend_id)
+def url_like(post_id) = url_base(post_id) + "/likes"
+def url_comments(post_id) = url_base(post_id) + "/comments"
+def url_family() = url_base + "/family" % "me"

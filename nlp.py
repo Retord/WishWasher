@@ -7,7 +7,12 @@ import requests
 import string
 
 def bday_wish(message):
-	""" Analyze message to ascertain if it is a birthday wish """
+	""" Analyze message to ascertain if it is a birthday wish
+	    Params:
+		       meassage: The message received from FB friend
+
+		Note: This is a temporary hack. Hope to make it better soon via statistical NLP
+	"""
 
 	assert type(message) == str
 	
@@ -48,5 +53,14 @@ def get_relation(friend):
 
 
 def get_message(post, friend):
-	""" Create the message to be posted as a reply """
+	""" Create the message to be posted as a reply
+	    Input:
+		     Dictionary representing FB wall post
+			 Dictionary representing FB friend who posted
+
+		Returns: A reply message to be posted in the comments
+	"""
+	
+	relation = get_relation(friend["name"])
+
 	return ""
