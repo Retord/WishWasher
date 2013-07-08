@@ -35,13 +35,13 @@ def reply_bday(posts):
 
 		if nlp.bday_wish(post["message"]):
 
-			friend = requests.get( fb.url_friend % post['actor_id'] ).json()
+			friend = requests.get( fb.url_friend(post['actor_id']) ).json()
 			friend_name = friend["first_name"]
 
-			like_url = fb.url_like % post["post_id"]
+			like_url = fb.url_like(post["post_id"])
 			l = requests.post(like_url, data=payload)
 			
-			comment_url = fb.url_comment % post["post_id"]
+			comment_url = fb.url_comment(post["post_id"])
 			payload["message"] = nlp.get_message(post, friend)
 			c = requests.post(comment_url, data=payload)
 
