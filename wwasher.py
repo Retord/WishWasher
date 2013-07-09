@@ -24,6 +24,7 @@ def get_posts(start_time):
 	"""
 	Returns json data of all the posts on your stream since the start time provided
 	Input: start_time = Unix time referring from when to get posts till present.
+	Return: Dictionary of all the posts since start_time till now.
 	"""
 
 	payload = { 'access_token': fb.AUTH_TOKEN, 'q':fb.POSTS_QUERY(start_time) }
