@@ -1,7 +1,6 @@
 # Script to reply to all my Birthday wishes. :)
 
 import requests
-import json
 import time
 
 import fb
