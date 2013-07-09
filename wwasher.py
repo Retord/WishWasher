@@ -9,21 +9,32 @@ import nlp
 
 
 bday = "Thu Jul 11 00:00:00 2013"
-start_time = time.mktime(time.strptime("Tue Jul  9 00:00:00 2013"))#time.mktime( time.strptime( bday ) )
+start_time = time.mktime( time.strptime( bday ) )
 end_time = time.mktime( time.strptime( "Fri Jul 12 00:00:00 2013" ) )
 
 
+def log(post, friend):
+	s = "{0}: {1} {2} posted '{3}' Post Id: {4} \n".format(time.ctime(), post["post_id"], friend["name"], post["message"], post["post_id"])
+	
+	with open("logfile", "w") as f:
+		f.seek(0, 2)
+		f.write(s)
 
+	
 def get_posts(start_time):
-	""" Returns json data of all the posts on your stream since the start time provided"""
+	"""
+	Returns json data of all the posts on your stream since the start time provided
+	Input: start_time = Unix time referring from when to get posts till present.
+	"""
 
 	payload = { 'access_token': fb.AUTH_TOKEN, 'q':fb.POSTS_QUERY(start_time) }
 	r = requests.get( fb.url_fql(), params=payload )
-	posts = json.loads(r.text)     # Creates Python object from the JSON
-	print("received posts")
+	posts = r.json()     # Creates Python object from the JSON
+	
 	if "data" not in posts.keys():
 		print("Please reinitialize session token!")
-		
+		return None
+	
 	return posts["data"]
 
 
@@ -34,28 +45,27 @@ def reply_bday(posts):
 	"""
 
 	payload = { 'access_token':fb.AUTH_TOKEN, 'message':""}
+	global start_time
+
 	
 	for post in posts:
-		print(post["message"])
 		
-		if not nlp.bday_wish(post["message"]):
+		if nlp.bday_wish(post["message"]):
 
 			friend = requests.get( fb.url_friend(post['actor_id']) ).json()
 			friend_name = friend["first_name"]
-			print("Got friend details")
 
-			print(post["post_id"].split('_')[-1])
-			like_url = fb.url_like(post["post_id"].split('_')[-1])
-			print(like_url)
+			
+			like_url = fb.url_like(post["post_id"].split('_')[-1]) # post_id is of format 'myid_postid', so extract the postid
 			l = requests.post(like_url, data=payload)
-			print("Got Like URL")
 
 			print("commenting")
 			comment_url = fb.url_comments(post["post_id"])
 			payload["message"] = nlp.get_message(post, friend)
 			c = requests.post(comment_url, data=payload)
-
-			start_time = post["created_time"]
+			
+			start_time = int(post["created_time"])
+			log(post, friend)
 			
 			print( "Replied to {0} who posted {1}: {2}. :)".format( friend["name"], post["post_id"], post["message"] ) ) 
 
@@ -72,5 +82,10 @@ if __name__ == "__main__":
 
 		
 	while start_time < end_time :
-		reply_bday( get_posts( start_time ) )
+		posts = get_posts( start_time )
+		if posts == None:
+			print("Please reset")
+			break
+		
+		reply_bday(posts)
 	
