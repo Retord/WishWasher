@@ -14,7 +14,7 @@ def bday_wish(message):
 		Note: This is a temporary hack. Hope to make it better soon via statistical NLP
 	"""
 
-	assert type(message) == str
+	#assert type(message) == str
 	
 	keywords = [["birthday", "happy", "best"], ["returns", "many", "bless"]]
 	corrections = {"bday":"birthday", "hpy":"happy"}
