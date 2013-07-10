@@ -12,7 +12,7 @@ start_time = time.mktime( time.strptime( bday ) )
 end_time = time.mktime( time.strptime( "Fri Jul 12 00:00:00 2013" ) )
 
 def get_start_time():
-	s = input("Please enter the start time (day Mon dd HH:MM:SS YYYY)(0 for current time, 1 for inbuilt bday):")
+	s = str(input("Please enter the start time (day Mon dd HH:MM:SS YYYY)(0 for current time, 1 for inbuilt bday):"))
 
 	if s == "0":
 		return time.mktime(time.strptime(time.ctime()))
