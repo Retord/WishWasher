@@ -31,7 +31,7 @@ def bday_wish(message):
 			if x in p:
 				count += 1
 
-	if count >= 1:
+	if count >= 2:
 		return True
 	else:
 		return False
