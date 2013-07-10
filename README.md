@@ -2,12 +2,12 @@ Wish-Washer
 ===========
 
 Bot that Washes the Wishes on your Facebook Wall.
-
+(Like a Dish-Washer)
 
 
 Ever been stormed by hundreds of birthday wishes and in the end simply put up a status message saying, "Thanks everyone for your lovely wishes"?
 
-Here is your solution! Wish-Washer starts reading your Facebook wall for posts regarding your birthday or any other occasion (you can specify which!) and then likes and replies on those posts, thus giving your friends the "thank you" they deserve. All you have to do is start him up and he keeps running until the time you decide that he has done you proud (which is usually when your special occasion ends).
+Here is your solution! Wish-Washer starts reading your Facebook wall for posts regarding your birthday or any other occasion (you can specify which!) and then likes and replies on those posts, thus giving your friends the "thank you" they deserve (and not the one they need). All you have to do is start him up and he keeps running until the time you decide that he has done you proud (which is usually when your special occasion ends).
 
 
 Requirements:
