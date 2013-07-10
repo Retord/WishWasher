@@ -11,6 +11,17 @@ bday = "Thu Jul 11 00:00:00 2013"
 start_time = time.mktime( time.strptime( bday ) )
 end_time = time.mktime( time.strptime( "Fri Jul 12 00:00:00 2013" ) )
 
+def get_start_time():
+	s = input("Please enter the start time (day Mon dd HH:MM:SS YYYY)(0 for current time, 1 for inbuilt bday):")
+
+	if s == "0":
+		return time.mktime(time.strptime(time.ctime()))
+	elif s == "1":
+		return start_time
+	else:
+		return time.mktime(time.strptime(s))
+	
+
 
 def log(post, friend):
 	s = "{0}: {1} {2} posted '{3}' Post Id: {4} \n".format(time.ctime(), post["post_id"], friend["name"], post["message"], post["post_id"])
@@ -74,6 +85,8 @@ def reply_bday(posts):
 
 if __name__ == "__main__":
 
+	start_time = get_start_time()
+	
 	if time.mktime(time.strptime(time.ctime())) < start_time:
 		print("Waiting for your birthday")
 
