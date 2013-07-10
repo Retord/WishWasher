@@ -24,9 +24,8 @@ def get_start_time():
 
 
 def log(post, friend):
-	s = "{0}: {1} {2} posted '{3}' Post Id: {4} \n".format(time.ctime(), post["post_id"], friend["name"], post["message"], post["post_id"])
-	
-	with open("logfile", "w") as f:
+	s = "{0}: {1} {2} posted '{3}' Post Id: {4} \n".format(time.ctime(), post["created_time"], friend["name"], post["message"], post["post_id"])
+	with open("logfile."+str(post["created_time"]), "w") as f:
 		f.seek(0, 2)
 		f.write(s)
 
@@ -67,7 +66,7 @@ def reply_bday(posts):
 			friend_name = friend["first_name"]
 
 			
-			like_url = fb.url_like(post["post_id"].split('_')[-1]) # post_id is of format 'myid_postid', so extract the postid
+			like_url = fb.url_like(post["post_id"])
 			l = requests.post(like_url, data=payload)
 
 			print("commenting")

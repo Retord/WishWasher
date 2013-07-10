@@ -16,7 +16,7 @@ def bday_wish(message):
 
 	#assert type(message) == str
 	
-	keywords = [["birthday", "happy", "best"], ["returns", "many", "bless"]]
+	keywords = [["birthday", "happy", "best", "memorable", "awesome", "fantastic"], ["returns", "many", "bless"]]
 	corrections = {"bday":"birthday", "hpy":"happy"}
 	
 	s = ''.join(c for c in message if c not in string.punctuation)
@@ -31,7 +31,7 @@ def bday_wish(message):
 			if x in p:
 				count += 1
 
-	if count >= 2:
+	if count >= 1:
 		return True
 	else:
 		return False
