@@ -92,6 +92,8 @@ if __name__ == "__main__":
 		while time.mktime(time.strptime(time.ctime())) < start_time:
 			continue
 
+
+	print("Starting up!")
 		
 	while start_time < end_time :
 		posts = get_posts( start_time )
