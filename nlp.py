@@ -16,21 +16,25 @@ def bday_wish(message):
 
 	#assert type(message) == str
 	
-	keywords = [["birthday", "birth", "happy", "best", "memorable", "awesome", "fantastic", "bappy", "hirthday"], ["returns", "many", "bless", "god"]]
-	corrections = {"bday":"birthday", "hpy":"happy"}
+	keywords = ["birthday", "birth", "happy", "bday", "hpy", "happie", "best", "memorable", "awesome", "fantastic", "super", "bappy", "hirthday", "returns", "many", "bless", "god"]
 	
-	s = ''.join(c for c in message if c not in string.punctuation)
+	s = ''.join(c for c in message if c not in string.punctuation and c in string.printable)
 	l = s.lower().split()
 
-	l = [corrections[x] if x in corrections.keys() else x for x in l]
-
 	count = 0
-	
-	for p in  keywords:
-		for x in l:
-			if x in p:
-				count += 1
 
+	
+	for x in l:
+		
+		if x in keywords:
+			count += 1
+				
+		for k in keywords:
+			if x.count(k):
+				count += 1
+				continue
+
+			
 	if count >= 2:
 		return True
 	else:

@@ -2,6 +2,8 @@
 
 import requests
 import time
+import string
+import codecs
 
 import fb
 import nlp
@@ -24,7 +26,9 @@ def get_start_time():
 
 
 def log(post, friend):
-	s = "{0}: {1} {2} posted '{3}' Post Id: {4} \n".format(time.ctime(), post["created_time"], friend["name"], post["message"], post["post_id"])
+
+	s = "{0}: {1} {2} posted '{3}' Post Id: {4} \n".format(time.ctime(), post["created_time"], friend["name"], post["message"].encode('utf-8'), post["post_id"])
+		
 	with open("logfile."+str(post["created_time"]), "w") as f:
 		f.seek(0, 2)
 		f.write(s)
@@ -77,7 +81,7 @@ def reply_bday(posts):
 			start_time = int(post["created_time"])
 			log(post, friend)
 			
-			print( "Replied to {0} who posted {1}: {2}. :)".format( friend["name"], post["post_id"], post["message"] ) ) 
+			print( "Replied to {0} who posted {1}: {2}. :)".format( friend["name"], post["post_id"], post["message"].encode('utf-8') ) ) 
 
 
 
