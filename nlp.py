@@ -16,7 +16,7 @@ def bday_wish(message):
 
 	#assert type(message) == str
 	
-	keywords = ["birthday", "birth", "happy", "bday", "hpy", "happie", "best", "memorable", "awesome", "fantastic", "super", "bappy", "hirthday", "returns", "many", "bless", "god"]
+	keywords = ["birthday", "birth", "happy", "bday", "hpy", "hbd", "hb", "happi", "best", "memorable", "awesome", "fantastic", "super", "bappy", "hirthday", "returns", "many", "bless", "god", "belated"]
 	
 	s = ''.join(c for c in message if c not in string.punctuation and c in string.printable)
 	l = s.lower().split()
@@ -28,11 +28,13 @@ def bday_wish(message):
 		
 		if x in keywords:
 			count += 1
-				
-		for k in keywords:
-			if x.count(k):
-				count += 1
-				continue
+			continue
+		
+		else:		
+			for k in keywords:
+				if x.count(k):
+					count += 1
+					break
 
 			
 	if count >= 2:
@@ -44,7 +46,7 @@ def bday_wish(message):
 def get_relation(friend):
 	""" Determine the relationship between you and the friend specified """
 
-	relations = requests.get("https://graph.facebook.com/me/family", params={'access_token':fb.AUTH_TOKEN}).json()["data"]
+	relations = requests.get("https://graph.facebook.com/me/family", params={'access_token':fb.access_token}).json()["data"]
 
 	
 	rel_list = [x["name"] for x in relations]
