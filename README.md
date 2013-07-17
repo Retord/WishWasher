@@ -1,7 +1,7 @@
 Wish-Washer
 ===========
 
-Version 2.1
+Version 3.0
 
 Bot that Washes the Wishes on your Facebook Wall.
 (Like a Dish-Washer)
@@ -32,13 +32,14 @@ How-To
 - Run *wwasher.py*. Enjoy!
 
 
-Version 2 Updates:
+Version 3 Updates:
 ------------------
-1. Access tokens are now Extended Access Tokens. No need to supply a new access token every 2 hours.
-2. Relationships moduled out for easier editing.
-3. Security details now stored in a separate file for each user = Greater degree of security. 
-4. Lots of code cleanup. The design is much simpler and elegant than before.
-5. Validations and Error Handling.
+1. Message translation built-in. Now your friends can wish you in non-English languages and Wish-Washer will respond.
+2. Access tokens are now Extended Access Tokens. No need to supply a new access token every 2 hours.
+3. Relationships moduled out for easier editing.
+4. Security details now stored in a separate file for each user = Greater degree of security. 
+5. Lots of code cleanup. The design is much simpler and elegant than before.
+6. Validations and Error Handling.
 
 
 
