@@ -1,7 +1,7 @@
 Wish-Washer
 ===========
 
-Version 2.0
+Version 2.1
 
 Bot that Washes the Wishes on your Facebook Wall.
 (Like a Dish-Washer)
