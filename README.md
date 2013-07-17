@@ -25,8 +25,11 @@ How-To
 ------
 - Install the **Requests** and **xmltodict** modules. (pip install *module_name*)
 - Create a Facebook app via your Facebook account and get its **client_id** and **client_secret**.
-	- Store the *client_id* & *client_secret* in a file called **app_details** at the same level as *wwasher.py*.
+- Store the *client_id* & *client_secret* in a file called **app_details** at the same level as *wwasher.py*.
 - Get a user access token to feed into the program the first time you start it up. This token is then stored in *app_details* for further use.
+- Follow the instructions [here](http://blogs.msdn.com/b/translation/p/gettingstarted1.aspx) to get a Microsoft Translator *client_ID* and *client_Secret* for use in translation.
+- Store the above details in a file called **translate_details** the same way as you did for *app_details*
+- Run *wwasher.py*. Enjoy!
 
 
 Version 2 Updates:
