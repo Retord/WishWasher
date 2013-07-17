@@ -19,9 +19,21 @@ def bday_wish(message):
 	
 	keywords = ["birthday", "birth", "happy", "bday", "hpy", "hbd", "hb", "happi", "best", "memorable", "awesome", "fantastic", "super", "bappy", "hirthday", "returns", "many", "bless", "god", "belated"]
 	
-	s = ''.join(c for c in message if c not in string.punctuation and c in string.printable)
-	l = s.lower().split()
+	expansion = {"hbd":["happy", "birthday"], "hb":["happy", "birthday"]}	
 
+
+	s = ''.join(c for c in message if c not in string.punctuation and c in string.printable)
+	t = s.lower().split()
+
+	l = []
+	for x in t:
+		if x in expansion.keys():
+			l.extend(expansion[x])
+		else:
+			l.append(x)
+	
+			
+	
 	count = 0
 
 	
