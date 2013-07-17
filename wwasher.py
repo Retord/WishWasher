@@ -92,6 +92,8 @@ def reply_bday(posts):
 if __name__ == "__main__":
 
 	start_time = get_start_time()
+
+	fb.access_token = fb.get_access_token()
 	
 	if time.mktime(time.strptime(time.ctime())) < start_time:
 		print("Please wait for your birthday")

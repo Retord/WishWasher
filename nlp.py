@@ -3,6 +3,7 @@ Script to analyze messages and determine friend relations
 """
 
 import fb
+import relationship
 import requests
 import string
 
@@ -43,19 +44,6 @@ def bday_wish(message):
 		return False
 
 
-def get_relation(friend):
-	""" Determine the relationship between you and the friend specified """
-
-	relations = requests.get("https://graph.facebook.com/me/family", params={'access_token':fb.access_token}).json()["data"]
-
-	
-	rel_list = [x["name"] for x in relations]
-	
-	relation = ''
-	if friend["name"] in rel_list:
-		relation = relations[rel_list.index(friend["name"])]["relationship"]
-		
-	return relation
 
 
 
@@ -71,52 +59,17 @@ def get_message(post, friend):
 	"""
 	
 	
-	relation = get_relation(friend)
+	relation = relationship.get_relation(friend)
 	message = "Thank you very very much, "
-	honorific = ""
-	
-	# Map of relation to message content
-	relations = {"mother":"Mom", "father":"Dad", "sister":"Tinki", "brother":"bro"}
-
-	# List of lists of relatives where each list is a specific type of relative
-	# [Maternal_aunts, Maternal_uncles, Paternal_aunts, Paternal_uncles, Maternal_cousin_sisters, Maternal_cousin_brothers, Paternal_cousin_sisters, Paternal_cousin_brothers]
-	people = [ ["Geeta", "Juli"], [], ["Shubhra"], [], ["Janica"], [], ["Pallavi", "Nikita", "Ankita"], ["Ashish", "Shobhit"] ]
-
-	# The above lists should be edited as required
-	
 	
 	if relation:
+		honorific, useName = relationship.get_honorific(relation)
 
-		if relation in relations.keys():
-			message = message + relations[relation]
-
-		else:
-			
-			for (i, l) in enumerate(people):
-				
-				if friend["first_name"] in l:
-					
-					if i == 0:
-						honorific = "maushi"
-					elif i == 1:
-						honorific = "uncle"
-					elif i == 2:
-						honorific = "taiji"
-					elif i == 3:
-						honorific = "taoji"
-					elif i == 4:
-						honorific = "baie"
-					elif i == 5:
-						honorific = "anna"
-					elif i == 6:
-						honorific = "di"
-					elif i == 7:
-						honorific = "bhaiya"
-						
-				break
-			
+		if useName:
 			message = message + friend["first_name"] + honorific
-
+		else:
+			message = message + honorific
+		
 	else:
 
 		message = message + friend["first_name"]
