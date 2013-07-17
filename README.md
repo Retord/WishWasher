@@ -20,6 +20,19 @@ Requirements:
 - A working internet connection. (duh)
 
 
+How-To
+------
+Please edit me
+
+
+
+Version 2 Updates:
+------------------
+1. Access tokens are now Extended Access Tokens. No need to supply a new access token every 2 hours.
+2. Relationships moduled out for easier editing.
+3. Security details now stored in a separate file for each user = Greater degree of security. 
+4. Lots of code cleanup. The design is much simpler and elegant than before.
+5. Validations and Error Handling.
 
 
 
