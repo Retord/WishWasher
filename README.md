@@ -15,14 +15,15 @@ Here is your solution! Wish-Washer starts reading your Facebook wall for posts r
 Requirements:
 -------------
 
-- Requests - HTTP for Humans.
-- Facebook Access Token.
+- [Requests - HTTP for Humans.](http://docs.python-requests.org/en/latest/)
+- [xmltodict](https://github.com/martinblech/xmltodict)
+- [Facebook Access Token.](https://developers.facebook.com/tools/explorer)
 - A working internet connection. (duh)
 
 
 How-To
 ------
-Please edit me
+- Install the Requests and xmltodict modules. (pip install *module_name*)
 
 
 

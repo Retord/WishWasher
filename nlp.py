@@ -4,8 +4,11 @@ Script to analyze messages and determine friend relations
 
 import fb
 import relationship
+import translator
+
 import requests
 import string
+
 
 def bday_wish(message):
 	""" Analyze message to ascertain if it is a birthday wish
@@ -15,7 +18,10 @@ def bday_wish(message):
 		Note: This is a temporary hack. Hope to make it better soon via statistical NLP
 	"""
 
-	#assert type(message) == str
+	# Translate message if it is not in English.
+	bing = translator.Bing()
+	message = bing.translate(message)
+	
 	
 	keywords = ["birthday", "birth", "happy", "bday", "hpy", "hbd", "hb", "happi", "best", "memorable", "awesome", "fantastic", "super", "bappy", "hirthday", "returns", "many", "bless", "god", "belated"]
 	
