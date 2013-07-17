@@ -3,10 +3,10 @@ Module to get relation of friend to user.
 """
 
 import requests
+import fb
 
 
-
-# Map of relation to message content
+# Map of relation to message content. E.g. 'Thank you Mom', rather than 'Thank you Mother's_name'
 relations = {"mother":"Mom", "father":"Dad", "sister":"Tinki", "brother":"bro"}
 
 

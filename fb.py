@@ -34,29 +34,30 @@ def get_access_token():
 		with open("app_details", "r") as app:
 			app_id = app.readline().split("\n")[0]
 			app_secret = app.readline().split("\n")[0]
+			
+			access_token = app.readline().split("\n")[0]
 
-			try:
-				access_token = app.readline().split("\n")[0]
+			
+		if access_token == "":         # Encountered EOF
+			
+			token = input("Please input the user access token (from Graph Explorer): ")
+			payload = {'grant_type':'fb_exchange_token', 'client_id':app_id, 'client_secret':app_secret, 'fb_exchange_token':token}
+			r = requests.get("https://graph.facebook.com/oauth/access_token", params=payload)
 
-			except Exception:
-				
-				token = input("Please input the user access token (from Graph Explorer): ")
-				payload = {'grant_type':'fb_exchange_token', 'client_id':app_id, 'client_secret':app_secret, 'fb_exchange_token':token}
-				r = requests.get("https://graph.facebook.com/oauth/access_token", params=payload)
-
-				access_token = str(r.text.split("&")[0].split("=")[1])
+			access_token = str(r.text.split("&")[0].split("=")[1])
 	
-				try:
-					with open("app_details", "a") as app_file:
-						app_file.write(access_token + "\n")
-
-				except Exception:
-					print("Write Error: File 'app_details' not present!")
+			try:
+				with open("app_details", "a") as app_file:
+					app_file.write(access_token + "\n")
+				
+			except Exception:
+				print("Write Error: File 'app_details' not present!")
 	
 				
 	except Exception:
 		print("File 'app_details' does not exist. Please create the file with the required data.")
-		
+
+	#print("Token: " + access_token)
 	
 	return access_token
 
