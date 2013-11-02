@@ -4,6 +4,11 @@
 
 import requests
 
+# User Details
+# Your FB user id. Be sure to change this!
+USER_ID = '1587053882'
+
+access_token = 'XXXXXXXXXXXXXXX'
 
 
 # FQL Queries
@@ -38,7 +43,7 @@ def get_access_token():
 			access_token = app.readline().split("\n")[0]
 
 			
-		if access_token == "":         # Encountered EOF
+		if access_token == "":         # If EOF Encountered
 			
 			token = input("Please input the user access token (from Graph Explorer): ")
 			payload = {'grant_type':'fb_exchange_token', 'client_id':app_id, 'client_secret':app_secret, 'fb_exchange_token':token}
@@ -81,12 +86,3 @@ def get_friend(friend_id):
 	"""
 	return requests.get( url_friend(friend_id) ).json()
 	
-	
-
-
-# Your FB user id. Be sure to change this!
-USER_ID = '1587053882'
-
-access_token = 'XXXXXXXXXXXXXXX'
-
-
